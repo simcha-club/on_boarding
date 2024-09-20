@@ -12,6 +12,7 @@
             margin: 0;
             padding: 20px;
             color: white;
+            direction: rtl; /* Right to left */
         }
         header {
             text-align: center;
@@ -25,6 +26,12 @@
             text-align: center;
             font-size: 2.5em;
             margin: 20px 0;
+        }
+        .user-id {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: lightgray;
         }
         .content {
             max-width: 700px;
@@ -44,6 +51,7 @@
 </header>
 
 <h1>תנאי שימוש</h1>
+<div class="user-id" id="userId"></div>
 
 <div class="content">
     <p>
@@ -68,6 +76,19 @@
         לקבלת מידע מפורט יותר אודות התנאים שלנו, אנא קרא את המסמך המלא.
     </p>
 </div>
+
+<script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user_id');
+
+    // Display user_id if it exists
+    if (userId) {
+        document.getElementById('userId').textContent = `User ID: ${userId}`;
+    } else {
+        document.getElementById('userId').textContent = 'User ID not provided.';
+    }
+</script>
 
 </body>
 </html>
